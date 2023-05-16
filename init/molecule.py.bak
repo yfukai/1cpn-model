@@ -125,7 +125,7 @@ class Molecule:
 
             elif "ITEM: ATOMS" in line:
                 if natoms == 0:
-                    print("Error! no natoms!")
+                    print "Error! no natoms!"
                     exit(1)
                 for i in range(natoms):
                     line=f.readline()
@@ -200,25 +200,25 @@ class Molecule:
         for i in range(natom):
             mytype = self.ellipsoids[i].mytype
             if (mytype > self.natom_type):
-                print("Error! Atom of type %d > natomtypes %d" % (mytype,self.natom_type));
+                print "Error! Atom of type %d > natomtypes %d" % (mytype,self.natom_type);
                 sys.exit(1)
 
         for i in range(nbond):
             mytype = self.bonds[i].mytype
             if (mytype > self.nbond_type):
-                print("Error! bond of type %d > nbondtypes %d" % (mytype,self.nbond_type));
+                print "Error! bond of type %d > nbondtypes %d" % (mytype,self.nbond_type);
                 sys.exit(1)
 
         for i in range(nangle):
             mytype = self.angles[i].mytype
             if (mytype > self.nangle_type):
-                print("Error! angle of type %d > nangletypes %d" % (mytype,self.nangle_type));
+                print "Error! angle of type %d > nangletypes %d" % (mytype,self.nangle_type);
                 sys.exit(1)
 
         for i in range(ndihedral):
             mytype = self.dihedrals[i].mytype
             if (mytype > self.ndihedral_type):
-                print("Error! dihedral of type %d > ndihedraltypes %d" % (mytype,self.ndihedral_type));
+                print "Error! dihedral of type %d > ndihedraltypes %d" % (mytype,self.ndihedral_type);
                 sys.exit(1)
 
 
@@ -317,7 +317,7 @@ class Ellipsoid:
         #check quaternions to make sure they have correct length
         norm = quat_norm(quat)
         if (abs(norm - 1.0) > 1e-5):
-            print("Error! Norm of ellipse not equal to 1! You messed something up with your quat math!")
+            print "Error! Norm of ellipse not equal to 1! You messed something up with your quat math!"
             sys.exit(1)
 
         self.quat = quat

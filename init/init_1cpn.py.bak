@@ -46,7 +46,7 @@ def write_args(args,param,geom,fnme):
       elif (type(value) == list) and (len(value) == 3):
         f.write("param.%s = [%f,%f,%f]\n" %(name,value[0],value[1],value[2]))
       else:
-        print("Variable %s has invalid output type %s" % (name, type(value)))
+        print "Variable %s has invalid output type %s" % (name, type(value))
 
    for name in geom.__slots__:
       value = eval("geom.%s" % name)
@@ -61,7 +61,7 @@ def write_args(args,param,geom,fnme):
       elif (type(value) == list) and (len(value) == 3):
         f.write("geom.%s = [%f,%f,%f]\n" %(name,value[0],value[1],value[2]))
       else:
-        print("Variable %s has invalid output type %s" % (name, type(value)))
+        print "Variable %s has invalid output type %s" % (name, type(value))
 
 
    f.close()
@@ -291,15 +291,15 @@ def align_with_1kx5(molecule,param):
             inuc = i;
             break
 
-    positions_1kx5={
-           9: {'in': (21.001449, 139.245216, 18.249657), 'out': (78.792145, 131.412435, -14.919424), 'nucl': (47.248498, 91.081386, 6.483035)} ,
-           10: {'in': (6.672159, 113.122551, 22.479820), 'out': (88.215994, 102.847036, -14.452594), 'nucl': (47.248498, 91.081386, 6.483035)} ,
-           11: {'in': (5.231514, 110.051192, 22.080299), 'out': (89.404634, 99.799229, -13.277508), 'nucl': (47.248498, 91.081386, 6.483035)} }
-    
-    pos1kx5 = np.zeros((3,3))
-    pos1kx5[0] = positions_1kx5[param.nucl_bp_unwrap]['in']
-    pos1kx5[1] = positions_1kx5[param.nucl_bp_unwrap]['out']
-    pos1kx5[2] = positions_1kx5[param.nucl_bp_unwrap]['nucl']
+	positions_1kx5={
+        9: {'in': (21.001449, 139.245216, 18.249657), 'out': (78.792145, 131.412435, -14.919424), 'nucl': (47.248498, 91.081386, 6.483035)} ,
+        10: {'in': (6.672159, 113.122551, 22.479820), 'out': (88.215994, 102.847036, -14.452594), 'nucl': (47.248498, 91.081386, 6.483035)} ,
+        11: {'in': (5.231514, 110.051192, 22.080299), 'out': (89.404634, 99.799229, -13.277508), 'nucl': (47.248498, 91.081386, 6.483035)} }
+
+	pos1kx5 = np.zeros((3,3))
+	pos1kx5[0] = positions_1kx5[param.nucl_bp_unwrap]['in']
+	pos1kx5[1] = positions_1kx5[param.nucl_bp_unwrap]['out']
+	pos1kx5[2] = positions_1kx5[param.nucl_bp_unwrap]['nucl']
 
     # pos, quat, fvu of chosen nucl
     pos0 = molecule.ellipsoids[inuc].pos
@@ -354,9 +354,9 @@ def calculate_nrl_dna_unwrap(param):
   ltmp = l - param.nucl_bp_unwrap
 
   if modulo != 0:
-    print("Note: For nrl=%d, n_bp_unwrap=%d, nrlends= %d (changed from %d!)" % (param.nrl, param.nucl_bp_unwrap, nrltmp,param.nrlends))
+    print "Note: For nrl=%d, n_bp_unwrap=%d, nrlends= %d (changed from %d!)" % (param.nrl, param.nucl_bp_unwrap, nrltmp,param.nrlends)
   else:
-    print("Note: For nrl=%d, n_bp_unwrap=%d, nrlends= %d (as specified)" % (param.nrl, param.nucl_bp_unwrap, nrltmp))
+    print "Note: For nrl=%d, n_bp_unwrap=%d, nrlends= %d (as specified)" % (param.nrl, param.nucl_bp_unwrap, nrltmp)
 
   param.nrlends = nrltmp
   param.dna_linker_length_ends = ltmp
@@ -395,7 +395,7 @@ def calculate_geom(geom,param):
 
   #calc j
   if (geom.d < geom.h):
-    print("Warning! specified i (%f) is less than calculated h (%f). Setting i=h" % (geom.d,geom.h))
+    print "Warning! specified i (%f) is less than calculated h (%f). Setting i=h" % (geom.d,geom.h)
     geom.d = geom.h
   geom.e = np.sqrt((geom.d - geom.h)**2 + (0.5*geom.a)**2)
 

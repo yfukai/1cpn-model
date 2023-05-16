@@ -152,7 +152,7 @@ def add_linker_histones(molecule,lhist,param):
              'gh' : 4,
              'ctd' : 5}
   if param.salt not in [5,15,80,150]:
-    print("Error! Salt must be 5,15,80,150 for linker histone. Salt=%0.2f is invalid!" % param.salt)
+    print "Error! Salt must be 5,15,80,150 for linker histone. Salt=%0.2f is invalid!" % param.salt
     exit()
 
   # calculate the bonds
