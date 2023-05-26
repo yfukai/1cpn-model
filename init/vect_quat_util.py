@@ -27,10 +27,10 @@ def quat_normalize(q):
 
 def quat_multiply(p,q): # out = p*q
     out = [0]*4
-    out[0] =  p[0]*q[0]-p[1]*q[1]-p[2]*q[2]-p[3]*q[3];
-    out[1] =  p[0]*q[1]+p[1]*q[0]+p[2]*q[3]-p[3]*q[2];
-    out[2] =  p[0]*q[2]-p[1]*q[3]+p[2]*q[0]+p[3]*q[1];
-    out[3] =  p[0]*q[3]+p[1]*q[2]-p[2]*q[1]+p[3]*q[0];
+    out[0] =  p[0]*q[0]-p[1]*q[1]-p[2]*q[2]-p[3]*q[3]
+    out[1] =  p[0]*q[1]+p[1]*q[0]+p[2]*q[3]-p[3]*q[2]
+    out[2] =  p[0]*q[2]-p[1]*q[3]+p[2]*q[0]+p[3]*q[1]
+    out[3] =  p[0]*q[3]+p[1]*q[2]-p[2]*q[1]+p[3]*q[0]
     return out
 
 def quat_norm(q): # return |q|
@@ -48,12 +48,12 @@ def quat_vec_rot(src,q):
   aa=[q[0]*q[0], q[1]*q[1], q[2]*q[2], q[3]*q[3]]
   ab=[q[0]*q[1], q[0]*q[2], q[0]*q[3], q[1]*q[2], q[1]*q[3], q[2]*q[3]]
   dest[0] = (aa[0]+aa[1]-aa[2]-aa[3])*src[0]+\
-            ((ab[3]-ab[2])*src[1]+(ab[1]+ab[4])*src[2])*2.0;
+            ((ab[3]-ab[2])*src[1]+(ab[1]+ab[4])*src[2])*2.0
   dest[1] = (aa[0]-aa[1]+aa[2]-aa[3])*src[1]+\
-            ((ab[2]+ab[3])*src[0]+(ab[5]-ab[0])*src[2])*2.0;
+            ((ab[2]+ab[3])*src[0]+(ab[5]-ab[0])*src[2])*2.0
   dest[2] = (aa[0]-aa[1]-aa[2]+aa[3])*src[2]+\
-            ((ab[4]-ab[1])*src[0]+(ab[0]+ab[5])*src[1])*2.0;
-  return dest;
+            ((ab[4]-ab[1])*src[0]+(ab[0]+ab[5])*src[1])*2.0
+  return dest
 
 def quat_fvu_rot(fvu,q):
     f = quat_vec_rot(fvu[0],q)

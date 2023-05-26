@@ -15,10 +15,10 @@ class Molecule:
         self.bond_types = []
         self.angle_types = []
         self.dihedral_types = []
-        self.natom_type = 0;
-        self.nbond_type = 0;
-        self.nangle_type = 0;
-        self.ndihedral_type = 0;
+        self.natom_type = 0
+        self.nbond_type = 0
+        self.nangle_type = 0
+        self.ndihedral_type = 0
 
     def set_box(self,xlo,xhi,ylo,yhi,zlo,zhi):
         self.boxl = [xlo,xhi,ylo,yhi,zlo,zhi]

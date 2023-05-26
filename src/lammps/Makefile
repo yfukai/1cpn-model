@@ -54,15 +54,15 @@ link:
 	@#ln -sfr $(files) -t ${LAMMPS_SRC} # Older ln doesnt permit the -r flag
 	ln -sf $(local_files) -t ${LAMMPS_SRC}
 	
-	@#custom logic for atom.cpp (should remove eventually)
-	@if [ `diff ${local_override_file} ${lammps_override_file} | grep "^>" | wc -l` -gt 2 ]; then \
-		echo "${local_override_file} differs by more than two lines."; \
-		exit 1; \
-	else\
-		echo "Note: Overriding ${lammps_override_file}. Saving old version to ${lammps_override_file_bak}";\
-		cp ${lammps_override_file} ${lammps_override_file_bak};\
-		ln -sf $(local_override_file) -t ${LAMMPS_SRC};\
-	fi
+#	@#custom logic for atom.cpp (should remove eventually)
+#	@if [ `diff ${local_override_file} ${lammps_override_file} | grep "^>" | wc -l` -gt 2 ]; then \
+#		echo "${local_override_file} differs by more than two lines."; \
+#		exit 1; \
+#	else\
+#		echo "Note: Overriding ${lammps_override_file}. Saving old version to ${lammps_override_file_bak}";\
+#		cp ${lammps_override_file} ${lammps_override_file_bak};\
+#		ln -sf $(local_override_file) -t ${LAMMPS_SRC};\
+#	fi
 
 
 unlink:
